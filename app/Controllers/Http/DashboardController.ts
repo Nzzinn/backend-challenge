@@ -14,7 +14,7 @@ export default class DashboardController {
     }
   }
 
-  public async filterAscCompany ({response}){
+  public async ascCompany ({response}){
     try{
       const companies = await Company.query().orderBy('companies.id', 'asc').preload('user')
 
@@ -24,7 +24,7 @@ export default class DashboardController {
     }
   }
 
-  public async filterDescCompany ({response}){
+  public async descCompany ({response}){
     try{
       const companies = await Company.query().orderBy('companies.id', 'desc').preload('user')
 
@@ -34,7 +34,7 @@ export default class DashboardController {
     }
   }
 
-  public async filterAscNameCompany ({response}: HttpContextContract){
+  public async ascNameCompany ({response}: HttpContextContract){
     try{
       const companies = await Company.query().orderBy('companies.company_name', 'asc').preload('user')
       const filter = companies.map((company) => {
@@ -49,7 +49,7 @@ export default class DashboardController {
     }
   }
 
-  public async filterDescNameCompany ({response}: HttpContextContract){
+  public async descNameCompany ({response}: HttpContextContract){
     try{
       const companies = await Company.query().orderBy('companies.company_name', 'desc').preload('user')
       const filter = companies.map((company) => {
@@ -73,7 +73,7 @@ export default class DashboardController {
     return response.ok(users)
   }
 
-  public async filterAscNameUser ({response}: HttpContextContract){
+  public async ascNameUser ({response}: HttpContextContract){
     try{
       const users = await User.query().orderBy('name', 'asc')
         .select('users.id', 'users.name', 'users.company_id', 'users.is_enable', 'companies.company_name')
@@ -85,7 +85,7 @@ export default class DashboardController {
     }
   }
 
-  public async filterDescNameUser ({response}: HttpContextContract){
+  public async descNameUser ({response}: HttpContextContract){
     try{
       const users = await User.query().orderBy('name', 'desc')
         .select('users.id', 'users.name', 'users.company_id', 'users.is_enable', 'companies.company_name')

@@ -8,16 +8,16 @@ Route.group(() => {
 
     Route.group(() => {
       Route.get('/', 'DashboardController.indexCompanies')
-      Route.get('/orderAsc', 'DashboardController.filterAscCompany')
-      Route.get('/orderDesc', 'DashboardController.filterDescCompany')
-      Route.get('/orderAscName', 'DashboardController.filterAscNameCompany')
-      Route.get('/orderDescName', 'DashboardController.filterDescNameCompany')
+      Route.get('/asc', 'DashboardController.ascCompany')
+      Route.get('/desc', 'DashboardController.descCompany')
+      Route.get('/ascName', 'DashboardController.ascNameCompany')
+      Route.get('/descName', 'DashboardController.descNameCompany')
     }).prefix('/companies')
 
     Route.group(() => {
       Route.get('/', 'DashboardController.indexUsers')
-      Route.get('/orderAsc', 'DashboardController.filterAscNameUser')
-      Route.get('/orderDesc', 'DashboardController.filterDescNameUser')
+      Route.get('/orderAsc', 'DashboardController.ascNameUser')
+      Route.get('/orderDesc', 'DashboardController.descNameUser')
     }).prefix('/users')
   }).prefix('/dashboard')
 
